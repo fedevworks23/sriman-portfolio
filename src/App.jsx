@@ -5,11 +5,9 @@ import HomePage from "./pages/HomePage";
 function App() {
   return (
     <>
-      <div className="flex-col m-auto w-[1280px] h-screen">
+      <div className="flex flex-col m-auto max-w-7xl h-screen">
         <Navbar />
-        <div className="">
-          <HomePage />
-        </div>
+        <HomePage />
       </div>
     </>
   );

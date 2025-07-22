@@ -3,7 +3,7 @@ import FrontImage from "../components/FrontImage";
 function HomePage() {
   return (
     <>
-      <div className="flex">
+      <div className="flex home-page">
         <div className="flex flex-col flex-1 justify-center text-5xl leading-[1.5]">
           <span>Hello I'm</span>
           <span>Frontend Developer</span>
