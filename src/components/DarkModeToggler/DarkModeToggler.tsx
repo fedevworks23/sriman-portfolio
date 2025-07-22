@@ -1,21 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-function DarkModeToggler({ darkMode }) {
-  const [colorMode, setColorMode] = useState(false);
+function DarkModeToggler() {
+  const [theme, setTheme] = useState("light");
 
-  const darkModeHandler = () => {
-    console.log(document.getElementsByClassName('darkMode'));
-    
-    darkMode.current?.classList.toggle("dark");
-    setColorMode(!colorMode);
+  const bodyElement = document.getElementsByTagName("body")[0];
+  useEffect(() => {
+    bodyElement.setAttribute("data-theme", theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === "light" ? "dark" : "light"));
   };
+
   return (
     <>
       <button
         className="bg-zinc-100 dark:bg-zinc-700 p-2 border-2 rounded-full transition-all ease-in-out cursor-pointer"
-        onClick={darkModeHandler}
+        onClick={toggleTheme}
       >
-        {colorMode ? (
+        {theme === "light" ? (
           <svg
             width="25"
             height="25"

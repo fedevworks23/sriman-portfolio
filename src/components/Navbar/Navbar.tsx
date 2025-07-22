@@ -1,17 +1,17 @@
 import { useState } from "react";
 import DarkModeToggler from "../DarkModeToggler/DarkModeToggler";
 
-function Navbar({ darkMode }) {
+function Navbar() {
   return (
     <>
-      <div className="flex justify-center items-center my-4">
+      <div className="flex justify-center items-center my-3 py-4 border-b-1">
         <div>Navbar</div>
 
         <ul className="flex">
           <li>About Me</li>
           <li>Skill</li>
         </ul>
-        <DarkModeToggler darkMode={darkMode} />
+        <DarkModeToggler />
       </div>
     </>
   );

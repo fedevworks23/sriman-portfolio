@@ -13,4 +13,16 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --bg-color: #f4f4f5;
+  --text-color: #101828;
+}
+
+[data-theme="dark"] {
+  --bg-color: #101828;
+  --text-color: #f4f4f5;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
