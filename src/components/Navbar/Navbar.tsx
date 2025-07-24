@@ -1,8 +1,16 @@
 // Navbar.tsx
 import { useState } from "react";
 import DarkModeToggler from "../DarkModeToggler/DarkModeToggler";
+import { NavLink } from "react-router";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+
+  const navLinkList = [
+    { to: "/", label: "Home" },
+    { to: "/works", label: "Works" },
+    { to: "/about-me", label: "About" },
+    { to: "/contact", label: "Contact" },
+  ];
 
   return (
     <nav className="z-10 shadow-md w-full">
@@ -10,23 +18,27 @@ export default function Navbar() {
         <div className="font-bold text-xl">Logo</div>
 
         {/* Desktop Links */}
-        <ul className="hidden md:flex">
-          <li>
-            <a href="#" className="">
-              About Me
-            </a>
-          </li>
-          <li>
-            <a href="#" className="">
-              Skill
-            </a>
-          </li>
-          <li>
-            <a href="#" className="">
-              Contact
-            </a>
-          </li>
-        </ul>
+        <div className="hidden md:flex items-center">
+          {navLinkList.map((link) => (
+            <NavLink
+              key={link.to}
+              to={link.to}
+              // className="mr-4 font-semibold text-lg"
+              className={({ isActive }) =>
+                isActive
+                  ? "mx-4 font-bold border-b-2 text-lg"
+                  : "mx-4 font-semibold text-lg"
+              }
+            >
+              #{link.label}
+            </NavLink>
+          ))}
+
+          {/* Dark Mode Toggler */}
+          <div className="hidden md:flex items-center space-x-4">
+            <DarkModeToggler />
+          </div>
+        </div>
 
         {/* Hamburger */}
         <button
@@ -35,10 +47,6 @@ export default function Navbar() {
         >
           {isOpen ? "✖" : "☰"}
         </button>
-
-        <div>
-          <DarkModeToggler />
-        </div>
       </div>
 
       {/* Mobile Menu */}
