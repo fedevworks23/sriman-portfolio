@@ -52,7 +52,24 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {isOpen && (
         <ul className="md:hidden space-y-2 shadow px-4 pt-2 pb-4">
-          <li>
+          {navLinkList.map((link) => (
+            <li key={link.to}>
+              <NavLink
+                to={link.to}
+                className={({ isActive }) =>
+                  isActive
+                    ? "block text-blue-500 font-bold"
+                    : "block text-gray-700 hover:text-blue-500"
+                }
+                onClick={() => setIsOpen(false)}
+              >
+                #{link.label}
+              </NavLink>
+            </li>
+          ))}
+
+          {/* Dark Mode Toggler */}
+          {/* <li>
             <a href="#" className="block text-gray-700 hover:text-blue-500">
               About Me
             </a>
@@ -66,7 +83,7 @@ export default function Navbar() {
             <a href="#" className="block text-gray-700 hover:text-blue-500">
               Contact
             </a>
-          </li>
+          </li> */}
         </ul>
       )}
     </nav>
