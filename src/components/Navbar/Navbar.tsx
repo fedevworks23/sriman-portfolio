@@ -13,17 +13,13 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="z-10 shadow-md w-full">
-      <div className="flex justify-between items-center mx-auto px-4 h-16">
-        <div className="font-bold text-xl">Logo</div>
-
-        {/* Desktop Links */}
-        <div className="hidden md:flex items-center">
+    <>
+      <nav className="z-10 w-full">
+        <div className="hidden md:flex justify-center items-center h-16 text-gray-700 dark:text-white">
           {navLinkList.map((link) => (
             <NavLink
               key={link.to}
               to={link.to}
-              // className="mr-4 font-semibold text-lg"
               className={({ isActive }) =>
                 isActive
                   ? "mx-4 font-bold border-b-2 text-lg"
@@ -38,38 +34,36 @@ export default function Navbar() {
           <div className="hidden md:flex items-center space-x-4">
             <DarkModeToggler />
           </div>
+          {/* Hamburger */}
+          <button
+            className="md:hidden focus:outline-none text-gray-700"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? "✖" : "☰"}
+          </button>
         </div>
 
-        {/* Hamburger */}
-        <button
-          className="md:hidden focus:outline-none text-gray-700"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? "✖" : "☰"}
-        </button>
-      </div>
+        {/* Mobile Menu */}
+        {isOpen && (
+          <ul className="md:hidden space-y-2 shadow px-4 pt-2 pb-4">
+            {navLinkList.map((link) => (
+              <li key={link.to}>
+                <NavLink
+                  to={link.to}
+                  className={({ isActive }) =>
+                    isActive
+                      ? "block text-blue-500 font-bold"
+                      : "block text-gray-700 hover:text-blue-500"
+                  }
+                  onClick={() => setIsOpen(false)}
+                >
+                  #{link.label}
+                </NavLink>
+              </li>
+            ))}
 
-      {/* Mobile Menu */}
-      {isOpen && (
-        <ul className="md:hidden space-y-2 shadow px-4 pt-2 pb-4">
-          {navLinkList.map((link) => (
-            <li key={link.to}>
-              <NavLink
-                to={link.to}
-                className={({ isActive }) =>
-                  isActive
-                    ? "block text-blue-500 font-bold"
-                    : "block text-gray-700 hover:text-blue-500"
-                }
-                onClick={() => setIsOpen(false)}
-              >
-                #{link.label}
-              </NavLink>
-            </li>
-          ))}
-
-          {/* Dark Mode Toggler */}
-          {/* <li>
+            {/* Dark Mode Toggler */}
+            {/* <li>
             <a href="#" className="block text-gray-700 hover:text-blue-500">
               About Me
             </a>
@@ -84,8 +78,9 @@ export default function Navbar() {
               Contact
             </a>
           </li> */}
-        </ul>
-      )}
-    </nav>
+          </ul>
+        )}
+      </nav>
+    </>
   );
 }

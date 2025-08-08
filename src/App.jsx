@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "./components/Navbar/Navbar";
-import HomePage from "./pages/HomePage";
+import HomePage from "./pages/Home/HomePage";
 import { Outlet, Route, Routes, useLocation } from "react-router";
 
 const AboutMe = React.lazy(() => import("./pages/AboutMe/AboutMe"));
