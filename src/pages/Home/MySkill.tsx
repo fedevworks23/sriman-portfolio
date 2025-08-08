@@ -49,7 +49,7 @@ function MySkill() {
     <>
       <div className="flex flex-col justify-center items-center h-screen">
         <div className="font-bold text-[#42446E] text-5xl">My Tech Stack</div>
-        <div className="text-[#666666] text-3xl">
+        <div className="mt-6 text-[#666666] text-3xl">
           {" "}
           Technologies I’ve been working with recently
         </div>

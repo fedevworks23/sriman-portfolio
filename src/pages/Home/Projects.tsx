@@ -26,7 +26,7 @@ function Projects() {
     <>
       <div className="flex flex-col justify-center items-center h-screen">
         <div className="font-bold text-[#42446E] text-5xl">Projects</div>
-        <div className="text-[#666666] text-3xl">Things I’ve built so far</div>
+        <div className="mt-6 text-[#666666] text-3xl">Things I’ve built so far</div>
         {/* Images */}
         <div className="gap-15 grid grid-cols-3 mt-24">
           {projects.map((project, index) => (

@@ -7,8 +7,9 @@ export default function Navbar() {
 
   const navLinkList = [
     { to: "/", label: "Home" },
-    { to: "/works", label: "Works" },
     { to: "/about-me", label: "About" },
+    { to: "/tech-skills", label: "Tech Skills" },
+    { to: "/works", label: "Projects" },
     { to: "/contact", label: "Contact" },
   ];
 
